@@ -1,0 +1,235 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "orca_input",
+    "patterns": [
+        {
+            "include": "#keywordline"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#coordinate-block"
+        },
+        {
+            "include": "#block"
+        }
+    ],
+    "repository": {
+        "keywordline": {
+            "patterns": [
+                {
+                    "begin": "!",
+                    "end": "\n",
+                    "name": "keyword.orca_input",
+                    "patterns": [
+                        {
+                            "include": "#functionals"
+                        },
+                        {
+                            "include": "#basis-sets"
+                        },
+                        {
+                            "include": "#keywords"
+                        }
+                    ]
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "match": "(#.*)",
+                    "name": "comment.line.orca_input"
+                }
+            ]
+        },
+        "block": {
+            "patterns": [
+                {
+                    "begin": "^(%)",
+                    "end": "(end)",
+                    "name": "meta.preprocessor.orca_input",
+                    "patterns": [
+                        {
+                            "include": "#blocks"
+                        },
+                        {
+                            "include": "#numerics"
+                        }
+                    ]
+                }
+            ]
+        },
+        "coordinate-block": {
+            "patterns": [
+                {
+                    "begin": "\\*.((xyz).(\\d).(\\d))",
+                    "end": "\\*",
+                    "name": "entity.name.function.orca_input",
+                    "patterns": [
+                        {
+                            "include": "#atoms"
+                        },
+                        {
+                            "include": "#numerics"
+                        }
+                    ]
+                }
+            ]
+        },
+        "atoms": {
+            "patterns": [
+                {
+                    "match": "\\b(Ac|Ag|Al|Am|Ar|As|At|Au|B|Ba|Be|Bh|Bi|Bk|Br|C|Ca|Cd|Ce|Cf|Cl|Cm|Cn|Co|Cr|Cs|Cu|Db|Ds|Dy|Er|Es|Eu|F|Fe|Fl|Fm|Fr|Ga|Gd|Ge|H|He|Hf|Hg|Ho|Hs|I|In|Ir|K|Kr|La|Li|Lr|Lu|Lv|Mc|Md|Mg|Mn|Mo|Mt|N|Na|Nb|Nd|Ne|Nh|Ni|No|Np|O|Og|Os|P|Pa|Pb|Pd|Pm|Po|Pr|Pt|Pu|Ra|Rb|Re|Rf|Rg|Rh|Rn|Ru|S|Sb|Sc|Se|Sg|Si|Sm|Sn|Sr|Ta|Tb|Tc|Te|Th|Ti|Tl|Tm|Ts|U|V|W|Xe|Y|Yb|Zn|Zr)\\b",
+                    "name": "support.variable.orca_input"
+                }
+            ]
+        },
+        "numerics": {
+            "patterns": [
+                {
+                    "match": "(\\b\\d+)",
+                    "name": "constant.numeric.orca_input"
+                }
+            ]
+        },
+        "blocks": {
+            "patterns": [
+                {
+                    "match": "(scf|casscf|cipsi|cis|cim|coords|cpcm|eprnmr|freq|geom|loc|md|mdci|method|mp2|mrci|mrcc|numgrad|nbo|output|pal|paras|rel|plots|rocis|rr|vpt2)",
+                    "name": "emphasis.orca_input"
+                }
+            ]
+        },
+        "functionals": {
+            "patterns": [
+                {
+                    "match": "\\b(HFS|LDA|LSD|VWN|VWN5|VWN3|PWLDA|BP(86)?|BLYP|OYLP|GLYP|XLYP|PW91|mPWPW|mPWlYP|PBE|RPBE|REVPBE|PWP|B1LYP|(CAM)?-?B3LYP|O3LYP|X3LYP|B1P|B3P|B3PW|PW1PW|mPW1PW|mPW1LYP|PBE0|PW6B95|BHANDHLYP|TPSS|TPSSh|TPSS0|M06|M06L|M062X|wB97(X?)(-D3)?|LC-BLYP|B2PLYP|B2PLYP-D3)\\b",
+                    "name": "keyword.control.less.orca_input"
+                }
+            ]
+        },
+        "basis-sets": {
+            "patterns": [
+                {
+                    "match": "\\b((3-21|6-31|6-311|STO-3)G(\\(d\\)|\\(d,p\\))?|(SARC(2?)-|ma-)?(ZORA-|DHK-)?(def2-)?(SV|TZV|QZV)(P|\\(P\\))P?D?|(aug-)?cc-pV(DZ|TZ|QZ|5Z|6Z)|LANL(08|2DZ|2TZ)|(EPR|IGLO)-II(I?))\\b",
+                    "name": "support.type.orca_input"
+                },
+                {
+                    "match": "\\b((def2|SARC)/J(K?)|AutoAux)\\b",
+                    "name": "support.type.orca_input"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "match": "(?i)\\b(HF|DFT|FOD|UHF|RKS|UKS|RHF|ROKS|ROHF)\\b",
+                    "name": "keyword.control.orca_input"
+                },
+                {
+                    "match": "(?i)\\b(SP|ENERGY|(GDIIS-)?(Z|C)?OPT|ENGRAD|NUMGRAD|(NUM)?FREQ|MD|CIM)\\b",
+                    "name": "support.function.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(No?)UseSym\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(((D)?LPNO|SC|RI|FIC)-)?(OO-|SCS-)?(RI-)?MP2(-F12)?(-RI)?\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)((D)?LPNO-)?(Q)?C(C|I)SD(\\(T\\))?(-F12)?\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(((D)?LPNO|SC|RI|FIC)-)?NEVPT2(-F12)?\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(MRCI|MRA(CPF|QCC|DCI\\d))\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NO)?FROZENCORE\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(ZINDO|NDDO|MNDO)\\/(S|1|2)|AM1|PM3\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NO|SPLIT)?RI(-JK|JCOSX|-J)?(-XC)?\\b",
+                    "name": "variable.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NOITER|CONV|(SEMI)?DIRECT|MOREAD|PATOM|PMODEL|HUECKEL|HCORE|(NO)?AUTOSTART)\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(No)?Decontract(Aux)?\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(ZORA(\\/RI)?|DKH(2)?)\\b",
+                    "name": "keyword.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NO?)(FINAL)?GRID(X?)(\\d)?\\b",
+                    "name": "variable.orca_input"
+                },
+                {
+                    "match": "\\b(?i)((VERY)?(TIGHT|EXTREME|STRONG|SLOPPY|LOOSE|NORMAL)SCF)\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(TIGHT|LOOSE|NORMAL)OPT\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NO|K)?DIIS\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NRSCF|AHSCF|NONRSCF|SOSCF|NOSOSCF|DAMP|NODAMP|LSHIFT|NOLSHIFT)\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(Easy|Normal|(Very)?Slow)Conv\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(XYZ|PDB)File\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NO)?SMEAR\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(ANGS|BOHRS)\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NO)?(KEEP|READ|CHEAP)?(DENS|INTS)\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(NORMAL|MINI|SMALL|LARGE|NO)PRINT(MOS|BASIS|GAP)?\\b",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)(CPCM|UNO|AIM)",
+                    "name": "emphasis.orca_input"
+                },
+                {
+                    "match": "\\b(?i)((ALL|REDUCE|NOREDUCE)?POP|(NO)?MULLIKEN|(NO)?LOEWDIN|(NO)?MAYER|NPA|NBO|NONPA|NONBO)\\b",
+                    "name": "emphasis.orca_input"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.orca_input"
+}

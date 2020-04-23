@@ -1,0 +1,25 @@
+{
+    "name": "orca-input-file",
+    "displayName": "Orca Input File",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.44.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "orca_input",
+            "aliases": ["orca-input", "orca_input"],
+            "extensions": ["inp"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "orca_input",
+            "scopeName": "source.orca_input",
+            "path": "./syntaxes/orca.tmLanguage.json"
+        }]
+    }
+}
