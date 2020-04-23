@@ -1,8 +1,9 @@
 {
     "name": "orca-input-file",
     "displayName": "Orca Input File",
+    "publisher": "jenskrumsieck",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.44.0"
     },
