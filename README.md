@@ -3,8 +3,9 @@
 
 
 This is a Visual Studio Code (vscode) Extension which provides basic syntax highlightning for ORCA DFT Package (Input files, *.inp*)
+Visit [ORCA Input Library](https://sites.google.com/site/orcainputlibrary/home) for syntax-related questions. For extension-related questions open issue here 😉
 
-To install automatically: https://marketplace.visualstudio.com/items?itemName=JensKrumsieck.orca-input-file
+To install automatically: [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JensKrumsieck.orca-input-file)
 
 To install manually, copy the folder into C:\Users\\{XYZ}\\.vscode\extensions
 
