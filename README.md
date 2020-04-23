@@ -3,7 +3,7 @@ This is a Visual Studio Code (vscode) Extension which provides basic syntax high
 
 To install automatically: https://marketplace.visualstudio.com/items?itemName=JensKrumsieck.orca-input-file
 
-To install manually, copy the folder into C:\Users\{XYZ}\.vscode\extensions
+To install manually, copy the folder into C:\Users\\{XYZ}\\.vscode\extensions
 
 **Screenshot**
 
