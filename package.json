@@ -2,6 +2,7 @@
     "name": "orca-input-file",
     "displayName": "Orca Input File",
     "publisher": "jenskrumsieck",
+    "repository": "https://github.com/JensKrumsieck/orca-input-file",
     "description": "",
     "version": "0.1.0",
     "engines": {
