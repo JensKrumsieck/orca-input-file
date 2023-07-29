@@ -56,6 +56,9 @@
                         },
                         {
                             "include": "#numerics"
+                        },
+                        {
+                            "include": "#booleans"
                         }
                     ]
                 }
@@ -94,6 +97,14 @@
                 }
             ]
         },
+        "booleans":{
+            "patterns": [
+                {
+                    "match": "(?i)\\b(true|false)",
+                    "name": "keyword.control.orca_input"
+                }
+            ]
+        },
         "blocks": {
             "patterns": [
                 {
@@ -113,11 +124,11 @@
         "basis-sets": {
             "patterns": [
                 {
-                    "match": "\\b((3-21|6-31|6-311|STO-3)(\\+|\\+\\+)?G|(SARC(2?)-|ma-)?(ZORA-|DHK-)?(def2-)?(SV|TZV|QZV)(P|\\(P\\))P?D?(/C)?|(aug-|maug-|jul-|jun-|may-|apr-)?cc-p(C|wC)?V(DZ|TZ|QZ|5Z|6Z)(/JK|/C)?|LANL(08|2DZ|2TZ)|(EPR|IGLO)-II(I?))\\b",
+                    "match": "\\b(MINI|MINIX|MINIS|MIDI|STO-3G|3-21G(SP)?|4-22GSP|SV|TZV|m?(6-31|6-311)(\\+|\\+\\+)?G|(SARC(2?)-|ma-)?(old-)?(ZORA-|DKH-|x2c-)?(def2-)?m?(SV|TZV|QZV)(P|\\(P\\))P?D?(all)?(-2c)?(-s)?(/J|/JK|/C)?|(aug-|maug-|jul-|jun-|may-|apr-)?cc-p(C|wC)?V(DZ|TZ|QZ|5Z|6Z)(-PP|-DK|-DK3)?(-F12)?(-MP2Fit|-OptRI|-CABS)?(/JK|/C)?|dhf-(SV|TZV|QZV)(P|\\(P\\))P?(-2c)?|old-SV|old-TZV|Partridge-(1|2|3|4)|D95p?|LANL(08|2DZ|2TZ)|(EPR|IGLO)-II(I?)|UGBS|CP|Wachters\\+f|(aug-|saug-)?ANO-pV(D|T|Q|5|6)Z|ANO-RCC-(DZP|TZP|QZP|Full)|(aug-)?pc(J|seg|Sseg)?-(0|1|2|3|4)|W1-(mtsmall|DZ|TZ|QZ|Opt)|Sapporo-(DKH3-)?(D|T|Q)ZP-2012)\\b",
                     "name": "support.type.orca_input"
                 },
                 {
-                    "match": "\\b(def2/(J|JK|JKsmall)|SARC/J|AutoAux|AuxJ|AuxJK|AuxC)\\b",
+                    "match": "\\b(def2/(J|JK|JKsmall)|(SARC|x2c)/J|SARC2-DKH-QZV/JK|AutoAux|AuxJ|AuxJK|AuxC)\\b",
                     "name": "support.type.orca_input"
                 }
             ]
