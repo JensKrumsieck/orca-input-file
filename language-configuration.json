@@ -6,16 +6,60 @@
     // symbols used as brackets
     "brackets": [
         ["%", "end"],
-        ["*", "*"]
+        ["*", "*"],
+        ["newgto", "end"],
+        ["addgto", "end"],
+        ["newecp", "end"],
+        ["newauxjgto", "end"],
+        ["addauxjgto", "end"],
+        ["newauxcgto", "end"],
+        ["addauxcgto", "end"],
+        ["newauxjkgto", "end"],
+        ["addauxjkgto", "end"],
+        ["newcabsgto", "end"],
+        ["addcabsgto", "end"]
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [
         ["%", "end"],
-        ["*", "*"]
+        ["*", "*"],
+        ["%", "end"],
+        ["*", "*"],
+        ["newgto", "end"],
+        ["addgto", "end"],
+        ["newecp", "end"],
+        ["newauxjgto", "end"],
+        ["addauxjgto", "end"],
+        ["newauxcgto", "end"],
+        ["addauxcgto", "end"],
+        ["newauxjkgto", "end"],
+        ["addauxjkgto", "end"],
+        ["newcabsgto", "end"],
+        ["addcabsgto", "end"]
     ],
     // symbols that can be used to surround a selection
     "surroundingPairs": [
         ["%", "end"],
-        ["*", "*"]
-    ]
+        ["*", "*"],
+        ["%", "end"],
+        ["*", "*"],
+        ["newgto", "end"],
+        ["addgto", "end"],
+        ["newecp", "end"],
+        ["newauxjgto", "end"],
+        ["addauxjgto", "end"],
+        ["newauxcgto", "end"],
+        ["addauxcgto", "end"],
+        ["newauxjkgto", "end"],
+        ["addauxjkgto", "end"],
+        ["newcabsgto", "end"],
+        ["addcabsgto", "end"]
+    
+    ],
+    "folding": {
+        "markers": {
+          "start": "^(?i)(%|NewGTO|AddGTO|NewECP|NewAuxJGTO|AddAuxJGTO|NewAuxCGTO|AddAuxCGTO|NewAuxJKGTO|AddAuxJKGTO|NewCABSGTO|AddCABSGTO)\\b",
+          "end": "end\\b"
+        }
+      }
 }
