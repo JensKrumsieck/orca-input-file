@@ -1,0 +1,16 @@
+name: Publish Marketplace
+on:
+  push:
+    tags:
+      - v*.*.*
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish to Marketplace
+        uses: Haaleo/publish-vscode-extension@v1
+        with:
+          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
